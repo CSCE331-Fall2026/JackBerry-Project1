@@ -1,0 +1,3 @@
+# Local-only notes about this project. Commit this .gitignore file
+# so Git keeps skipping the folder; do not commit anything inside it.
+/local/
