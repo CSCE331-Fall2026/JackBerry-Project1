@@ -238,6 +238,26 @@ a:focus-visible {
   justify-content: flex-start;
 }
 
+.portfolio-head-split {
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6rem 2rem;
+}
+
+.portfolio-title {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3.6vw, 2.4rem);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--band-bright);
+}
+
+.portfolio-head-split + .interests {
+  margin-top: 2.1rem;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
