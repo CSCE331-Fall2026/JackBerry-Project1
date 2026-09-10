@@ -17,31 +17,74 @@
     </ul>
   </nav>
 
-  <main class="page">
-    <h1>Portfolio</h1>
-    <p class="lede">Resume, skills, interests, and projects. definitely want to focus on making this page look wayyy better.</p>
+  <main class="portfolio">
+    <h1 class="sr-only">Portfolio</h1>
 
-    <section>
-      <h2>Resume</h2>
-      <p><a href="resume.pdf">Download resume (PDF)</a></p>
+    <div class="portfolio-head">
+      <a class="resume-link" href="resume.pdf" download>
+        Resume <span class="resume-arrow" aria-hidden="true">&#8595;</span>
+      </a>
+    </div>
+
+    <section class="interests">
+      <h2 class="section-label">Interests</h2>
+      <p>Areas I actually have interest in and want to learn more about.</p>
     </section>
 
-    <section>
-      <h2>Technical skills</h2>
-      <ul>
-        <li>stuff like languages and coursework</li>
-        <li>tools</li>
+    <section class="projects">
+      <h2 class="section-label">Projects</h2>
+
+      <ul class="project-list">
+        <li class="project">
+          <p class="project-date">2024 &ndash; 2025</p>
+          <div class="project-main">
+            <h3 class="project-title">First project</h3>
+            <p>blah blah stuff i have done</p>
+            <ul class="bubbles">
+              <li>C++</li>
+              <li>Git</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="project">
+          <p class="project-date">July &ndash; August</p>
+          <div class="project-main">
+            <h3 class="project-title">Second project</h3>
+            <p>Something I want to build next.</p>
+            <ul class="bubbles">
+              <li>Python</li>
+              <li>JavaScript</li>
+            </ul>
+          </div>
+        </li>
       </ul>
     </section>
 
-    <section>
-      <h2>Interests</h2>
-      <p>areas I actually have interest in and want to learn more about.</p>
-    </section>
+    <section class="skills">
+      <h2 class="section-label">Skills</h2>
 
-    <section>
-      <h2>Projects</h2>
-      <p>stuff ive done and maybe some stuff i want to do.</p>
+      <div class="skill-grid">
+        <div class="skill-block">
+          <h3 class="skill-heading">Languages</h3>
+          <p>C++, Java, Python, JavaScript, etc.</p>
+        </div>
+
+        <div class="skill-block">
+          <h3 class="skill-heading">Web</h3>
+          <p>HTML, CSS, etc.</p>
+        </div>
+
+        <div class="skill-block">
+          <h3 class="skill-heading">Tools</h3>
+          <p>Git, GitHub, VS Code, etc.</p>
+        </div>
+
+        <div class="skill-block">
+          <h3 class="skill-heading">Coursework</h3>
+          <p>CSCE 121, CSCE 221, CSCE 312, CSCE 331, etc.</p>
+        </div>
+      </div>
     </section>
   </main>
 </body>

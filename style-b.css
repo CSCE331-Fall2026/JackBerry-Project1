@@ -8,6 +8,13 @@
   --on-photo: #f4f8fb;
   --on-photo-soft: rgba(244, 248, 251, 0.82);
   --max: 780px;
+  --band-max: 1080px;
+  --band-text: #e9eff5;
+  --band-bright: #f7fafc;
+  --band-muted: rgba(233, 239, 245, 0.74);
+  --band-faint: rgba(233, 239, 245, 0.5);
+  --ice: #9bbcd4;
+  --ice-bright: #d3e6f4;
   --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -210,6 +217,217 @@ a:focus-visible {
   resize: vertical;
 }
 
+/* Portfolio — one frosted band, continuous entry list */
+.portfolio {
+  width: min(var(--band-max), calc(100% - 2.5rem));
+  margin: 2.5rem auto 4.5rem;
+  padding: 1.7rem 2.75rem 2.5rem;
+  color: var(--band-text);
+  background: linear-gradient(
+    180deg,
+    rgba(46, 59, 74, 0.56) 0%,
+    rgba(36, 48, 62, 0.5) 100%
+  );
+  border: 1px solid rgba(233, 239, 245, 0.12);
+  backdrop-filter: blur(16px) saturate(115%);
+  -webkit-backdrop-filter: blur(16px) saturate(115%);
+}
+
+.portfolio-head {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Resume sits off to the side as a quiet hyperlink */
+.resume-link {
+  flex-shrink: 0;
+  padding-bottom: 0.3rem;
+  color: var(--band-muted);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: 1px solid rgba(233, 239, 245, 0.25);
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.resume-link:hover {
+  color: var(--band-bright);
+  border-bottom-color: rgba(233, 239, 245, 0.75);
+}
+
+.resume-arrow {
+  display: inline-block;
+  margin-left: 0.4rem;
+  transition: transform 0.25s ease;
+}
+
+.resume-link:hover .resume-arrow {
+  transform: translateY(2px);
+}
+
+/* Quiet eyebrow label that groups what follows */
+.section-label {
+  margin: 0 0 0.9rem;
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--band-faint);
+}
+
+.interests {
+  margin-top: 1.5rem;
+}
+
+.interests p {
+  margin: 0 0 0.85rem;
+  max-width: 44em;
+  color: var(--band-text);
+}
+
+.interests p:last-child {
+  margin-bottom: 0;
+}
+
+.projects {
+  margin-top: 3.1rem;
+}
+
+.project-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Each listing reads on its own, but the hairlines keep them one group */
+.project {
+  display: grid;
+  grid-template-columns: 8.5rem minmax(0, 1fr);
+  gap: 0 2.25rem;
+  align-items: start;
+  padding: 1.6rem 1.25rem;
+  margin: 0 -1.25rem;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project:hover {
+  background: rgba(155, 188, 212, 0.07);
+  box-shadow:
+    inset 0 0 0 1px rgba(155, 188, 212, 0.22),
+    0 0 26px rgba(155, 188, 212, 0.12);
+}
+
+.project-date {
+  margin: 0.35rem 0 0;
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ice);
+  font-variant-numeric: tabular-nums;
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.project:hover .project-date {
+  color: var(--ice-bright);
+  text-shadow: 0 0 14px rgba(155, 188, 212, 0.45);
+}
+
+.project-main {
+  min-width: 0;
+}
+
+.project-title {
+  margin: 0 0 0.5rem;
+  font-family: var(--serif);
+  font-size: 1.22rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--band-bright);
+  transition: color 0.25s ease;
+}
+
+.project-main p {
+  margin: 0;
+  max-width: 46em;
+  color: var(--band-muted);
+}
+
+.project-main a {
+  color: #cddceb;
+}
+
+.project-main a:hover {
+  color: var(--band-bright);
+}
+
+/* Skill bubbles belong to the projects only */
+.bubbles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bubbles li {
+  margin: 0;
+  padding: 0.24rem 0.72rem;
+  font-size: 0.76rem;
+  letter-spacing: 0.02em;
+  color: #cddceb;
+  background: rgba(200, 219, 235, 0.1);
+  border: 1px solid rgba(200, 219, 235, 0.2);
+  border-radius: 999px;
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.project:hover .bubbles li {
+  color: var(--ice-bright);
+  background: rgba(155, 188, 212, 0.18);
+  border-color: rgba(155, 188, 212, 0.36);
+}
+
+/* Skills — subheadings with text, spaced apart instead of ruled */
+.skills {
+  margin-top: 3.1rem;
+}
+
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1.9rem 3rem;
+}
+
+.skill-heading {
+  margin: 0 0 0.35rem;
+  font-family: var(--serif);
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: var(--band-bright);
+}
+
+.skill-block p {
+  margin: 0;
+  color: var(--band-muted);
+}
+
 @media (max-width: 800px) {
   .site-nav {
     padding-top: 1.5rem;
@@ -218,6 +436,21 @@ a:focus-visible {
   .page {
     margin: 2rem auto 3rem;
     padding: 1.8rem 1.5rem 2rem;
+  }
+
+  .portfolio {
+    padding: 2.1rem 1.7rem 1.8rem;
+  }
+
+  .project {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+    padding: 1.45rem 1rem;
+    margin: 0 -1rem;
+  }
+
+  .project-date {
+    margin: 0;
   }
 }
 
@@ -250,5 +483,35 @@ a:focus-visible {
     width: calc(100% - 1.5rem);
     margin: 1.5rem auto 2.5rem;
     padding: 1.5rem 1.25rem 1.75rem;
+  }
+
+  .portfolio {
+    width: calc(100% - 1.5rem);
+    margin: 1.5rem auto 2.75rem;
+    padding: 1.7rem 1.25rem 1.4rem;
+  }
+
+  .projects,
+  .skills {
+    margin-top: 2.4rem;
+  }
+
+  .skill-grid {
+    gap: 1.5rem;
+  }
+
+  .bubbles li {
+    font-size: 0.72rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project,
+  .project-title,
+  .project-date,
+  .bubbles li,
+  .resume-link,
+  .resume-arrow {
+    transition: none;
   }
 }
